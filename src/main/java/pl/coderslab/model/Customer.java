@@ -2,20 +2,18 @@ package pl.coderslab.model;
 
 import org.hibernate.validator.constraints.pl.NIP;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
 @Entity
+//@Table(name = "customers")
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Email
     @Pattern(regexp = "[^@]+@[^\\.]+\\..+")

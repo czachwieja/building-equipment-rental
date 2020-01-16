@@ -15,7 +15,7 @@ public class EquipmentService {
         this.equipmentRepository = equipmentRepository;
     }
 
-    public List<Equipment> getAllEquipment(){
+    public List<Equipment> getAllEquipment() {
         return equipmentRepository.findAll();
     }
 

@@ -1,0 +1,14 @@
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-01-11', 1);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-01-13', 2);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-01-15', 1);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-01-16', 1);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-01-17', 2);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-01-18', 1);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-01-14', 2);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-01-31', 3);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-02-21', 1);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-02-22', 1);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-02-23', 1);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-02-24', 2);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-02-25', 2);
+INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-02-26', 2);

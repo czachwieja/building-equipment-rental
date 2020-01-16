@@ -1,16 +1,15 @@
 package pl.coderslab.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Equipment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String name;
 
@@ -19,6 +18,9 @@ public class Equipment {
     private double price;
 
     private String pathToImage;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipment")
+    private List<Rental> rentals = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -58,6 +60,18 @@ public class Equipment {
 
     public void setPathToImage(String pathToImage) {
         this.pathToImage = pathToImage;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Rental> getRentals() {
+        return rentals;
+    }
+
+    public void setRentals(List<Rental> rentals) {
+        this.rentals = rentals;
     }
 }
 

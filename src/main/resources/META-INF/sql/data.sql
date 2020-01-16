@@ -1,4 +1,0 @@
-# INSERT INTO equipment (name, description, price) VALUES ('Kamera termowizyjna Flir E8 WiFi', 'Flir E8 to mobilna, prosta w obsłudze, wytrzymała i ultra uniwersalna kamera termowizyjna. Przeznaczona jest do zastosowania w budownictwie, energetyce i przemyśle', 200);
-INSERT INTO equipment (name, description, price) VALUES ('Kamera termowizyjna Flir E8 WiFi', 'Flir E8 to mobilna, prosta w obsludze, wytrzymala i ultra uniwersalna kamera termowizyjna. Przeznaczona jest do zastosowania w budownictwie, energetyce i przemysle', 200);
-# INSERT INTO equipment (name, description, price) VALUES ('Miernik certyfikacyjny sieci LAN VIAVI Certifier 40G', 'Urządzenie do wykonywania pomiarów certyfikacyjnych sieci LAN kat. 6, 6A', 300);
-INSERT INTO equipment (name, description, price) VALUES ('Miernik certyfikacyjny sieci LAN VIAVI Certifier 40G', 'Urzadzenie do wykonywania pomiarow certyfikacyjnych sieci LAN kat. 6, 6A', 300);
