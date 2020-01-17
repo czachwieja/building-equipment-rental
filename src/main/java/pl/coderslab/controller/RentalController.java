@@ -23,24 +23,32 @@ public class RentalController {
     }
 
 
-    @PostMapping("/add-rental")
-    public String addRental(@ModelAttribute Rental rental) {
-        rental = new Rental();
+    @GetMapping("/add-rental/{equipmentId}/{rentalDate}")
+    public String addRental(@PathVariable("equipmentId") Long equipmentId, @PathVariable("rentalDate") LocalDate rentalDate) {
+        Equipment equipment
+        Rental rental = new Rental();
+
         rentalService.saveRental(rental);
         return "redirect:/";
     }
 
-    @GetMapping("/all-rental/{equipmentId}")
+    @GetMapping("/all-rentals/{equipmentId}")
     public String getAllRentalsByEquipmentId(@PathVariable("equipmentId") Long equipmentId, Model model) {
         model.addAttribute("rentalsByEquipmentId", rentalService.getAllRentalsByEquipmentId(equipmentId));
-        return "allrental";
+        return "all-rentals";
+    }
+
+    @GetMapping("/all-rentals")
+    public String getAllRentals(Model model) {
+        model.addAttribute("rentals", rentalService.getAllRentals());
+        return "all-rentals";
     }
 
     @PostMapping("/rental/{equipmentId}")
     public String getRentalsByEquipmentId(@PathVariable("equipmentId") Long equipmentId, Model model) {
         model.addAttribute("rentalsByEquipmentId", rentalService.getRentalsByEquipmentIdWithin30Days(equipmentId));
-        model.addAttribute("localDate", LocalDate.now());
-//        model.addAttribute("")
+//        model.addAttribute("localDate", LocalDate.now());
+        model.addAttribute("equipmentId", equipmentId);
         return "rental";
     }
 

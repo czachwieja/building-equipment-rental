@@ -3,3 +3,11 @@ img.mini {
     margin-right: auto;
     height: 250px;
 }
+
+td.line-through {
+    text-decoration: line-through;
+}
+
+td.green {
+    color: green;
+}

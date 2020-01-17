@@ -19,6 +19,8 @@ public class RentalService {
         this.rentalRepository = rentalRepository;
     }
 
+
+
     public Rental saveRental(Rental rental) {
         return rentalRepository.save(rental);
     }
@@ -27,6 +29,11 @@ public class RentalService {
         return rentalRepository.findAllByEquipmentId(equipmentId);
     }
 
+    public List<Rental> getAllRentals() {
+        return rentalRepository.findAll();
+    }
+
+
 //    public List<Rental> getRentalsByEquipmentIdWithin30Days(Long equipmentId) {
 //        return rentalRepository.findFirst3ByEquipmentIdAndRentalDateGreaterThan(equipmentId, LocalDate.now());
 //    }
@@ -34,7 +41,7 @@ public class RentalService {
     public LinkedHashMap<LocalDate, String> getRentalsByEquipmentIdWithin30Days(Long equipmentId) {
 //        List<RentalUtil> rentalUtilList = new ArrayList<>();
         LinkedHashMap<LocalDate, String> localDateStringLinkedHashMap = new LinkedHashMap<>();
-        List<Rental> rentalList = rentalRepository.findFirst3ByEquipmentIdAndRentalDateGreaterThan(equipmentId, LocalDate.now());
+        List<Rental> rentalList = rentalRepository.findFirst5ByEquipmentIdAndRentalDateGreaterThan(equipmentId, LocalDate.now());
 //        for (int i = 0; i < rentalList.size(); i++) {
 //            LocalDate localDate;
 //            for (int j=0; j<=)
@@ -52,9 +59,9 @@ public class RentalService {
 //        }
         for (LocalDate localDate = LocalDate.now(); localDate.isBefore(LocalDate.now().plusDays(10)); localDate = localDate.plusDays(1)) {
             if (rentalLocalDates.contains(localDate)) {
-                localDateStringLinkedHashMap.put(localDate, "red");
+                localDateStringLinkedHashMap.put(localDate, "rented");
             } else {
-                localDateStringLinkedHashMap.put(localDate, "green");
+                localDateStringLinkedHashMap.put(localDate, "free");
             }
         }
 

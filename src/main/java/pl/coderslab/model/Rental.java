@@ -17,6 +17,14 @@ public class Rental {
     @Column(name = "rental_date")
     private LocalDate rentalDate;
 
+    public Rental() {
+    }
+
+    public Rental(Long equipmentId, LocalDate rentalDate) {
+        this.rentalDate=rentalDate;
+        this.equipment=equipment.setId(equipmentId);
+    }
+
     public Long getId() {
         return id;
     }
