@@ -3,7 +3,6 @@ package pl.coderslab.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.model.Equipment;
@@ -17,18 +16,18 @@ import java.time.LocalDate;
 public class RentalController {
 
     private RentalService rentalService;
+    private EquipmentService equipmentService;
 
-    public RentalController(RentalService rentalService) {
+    public RentalController(RentalService rentalService, EquipmentService equipmentService) {
         this.rentalService = rentalService;
+        this.equipmentService = equipmentService;
     }
 
-
     @GetMapping("/add-rental/{equipmentId}/{rentalDate}")
-    public String addRental(@PathVariable("equipmentId") Long equipmentId, @PathVariable("rentalDate") LocalDate rentalDate) {
-        Equipment equipment
-        Rental rental = new Rental();
-
-        rentalService.saveRental(rental);
+    public String addRental(@PathVariable("equipmentId") Long equipmentId, @PathVariable("rentalDate") String stringRentalDate) {
+        Equipment equipment = equipmentService.getEquipmentById(equipmentId);
+        LocalDate rentalDate = LocalDate.parse(stringRentalDate);
+        rentalService.saveRental(new Rental(equipment, rentalDate));
         return "redirect:/";
     }
 
@@ -46,8 +45,7 @@ public class RentalController {
 
     @PostMapping("/rental/{equipmentId}")
     public String getRentalsByEquipmentId(@PathVariable("equipmentId") Long equipmentId, Model model) {
-        model.addAttribute("rentalsByEquipmentId", rentalService.getRentalsByEquipmentIdWithin30Days(equipmentId));
-//        model.addAttribute("localDate", LocalDate.now());
+        model.addAttribute("isRentedByEquipmentId", rentalService.isRentedByEquipmentId(equipmentId));
         model.addAttribute("equipmentId", equipmentId);
         return "rental";
     }
@@ -55,10 +53,9 @@ public class RentalController {
 //    @GetMapping("/rental/{equipmentName}")
 //    public String getRentalsByEquipmentId(@PathVariable("equipmentName") String equipmentName, Model model) {
 //
-//        Equipment equipment = null;
-//        equipment.setName(equipmentName);
+//        Equipment equipment = equipmentService.getEquipmentByName(equipmentName);
 //        Long equipmentId = equipment.getId();
-//        model.addAttribute("rentalsByEquipmentId", rentalService.getRentalsByEquipmentIdWithin30Days(equipmentId));
+//        model.addAttribute("rentalsByEquipmentId", rentalService.isRentedByEquipmentId(equipmentId));
 //        return "rental";
 //    }
 

@@ -10,11 +10,11 @@ import java.util.List;
 @Repository
 public interface RentalRepository extends JpaRepository<Rental, Long> {
 
-    @Override
-    <S extends Rental> S save(S s);
+//    @Override
+//    <S extends Rental> S save(S s);
 
     List<Rental> findAllByEquipmentId(Long id);
 
-    List<Rental> findFirst5ByEquipmentIdAndRentalDateGreaterThan(Long id, LocalDate todayDate);
+    List<Rental> findFirst30ByEquipmentIdAndRentalDateGreaterThanEqual(Long id, LocalDate todayDate);
 
 }

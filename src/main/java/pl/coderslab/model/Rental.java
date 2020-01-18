@@ -20,9 +20,9 @@ public class Rental {
     public Rental() {
     }
 
-    public Rental(Long equipmentId, LocalDate rentalDate) {
-        this.rentalDate=rentalDate;
-        this.equipment=equipment.setId(equipmentId);
+    public Rental(Equipment equipment, LocalDate rentalDate) {
+        this.equipment = equipment;
+        this.rentalDate = rentalDate;
     }
 
     public Long getId() {
@@ -48,4 +48,5 @@ public class Rental {
     public void setRentalDate(LocalDate rentalDate) {
         this.rentalDate = rentalDate;
     }
+
 }

@@ -39,12 +39,11 @@
                         <th>Wybierz datę wypożyczenia</th>
                     </tr>
                     </thead>
-                    <tbody th:each="rental : ${rentalsByEquipmentId}">
+                    <tbody th:each="rental : ${isRentedByEquipmentId}">
                     <tr>
                         <div th:switch="${rental.getValue()}">
-<!--                        <td th:case="'rented'" class="line-through" th:text="${rental.getKey()}" alt="Sprzęt zarezerwowany"></td>-->
-                        <td th:case="'rented'" class="line-through" th:text="${#temporals.dayOfWeekName(rental.getKey()) + ', ' + rental.getKey()}" alt="Sprzęt zarezerwowany"></td>
-                        <td th:case="'free'" class="green"><a th:href="@{'/add-rental/' + ${equipmentId} + '/' + ${rental.getKey()}}"><span th:text="${#temporals.dayOfWeekName(rental.getKey()) + ', ' + rental.getKey()}"></span></a></td>
+                            <td th:case="${true}" class="line-through" th:text="${#temporals.dayOfWeekName(rental.getKey()) + ', ' + rental.getKey()}"></td>
+                            <td th:case="${false}" class="green"><a th:href="@{'/add-rental/' + ${equipmentId} + '/' + ${rental.getKey()}}"><span th:text="${#temporals.dayOfWeekName(rental.getKey()) + ', ' + rental.getKey()}"></span></a></td>
                         </div>
                     </tr>
                     </tbody>

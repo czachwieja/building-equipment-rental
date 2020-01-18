@@ -73,5 +73,17 @@ public class Equipment {
     public void setRentals(List<Rental> rentals) {
         this.rentals = rentals;
     }
+
+    @Override
+    public String toString() {
+        return "\nEquipment{" +
+//                "id=" + id +
+                ", name='" + name + '\'' +
+//                ", description='" + description + '\'' +
+//                ", price=" + price +
+//                ", pathToImage='" + pathToImage + '\'' +
+//                ", rentals=" + rentals +
+                '}';
+    }
 }
 

@@ -7,7 +7,6 @@ import pl.coderslab.repository.RentalRepository;
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -18,7 +17,6 @@ public class RentalService {
     public RentalService(RentalRepository rentalRepository) {
         this.rentalRepository = rentalRepository;
     }
-
 
 
     public Rental saveRental(Rental rental) {
@@ -38,38 +36,29 @@ public class RentalService {
 //        return rentalRepository.findFirst3ByEquipmentIdAndRentalDateGreaterThan(equipmentId, LocalDate.now());
 //    }
 
-    public LinkedHashMap<LocalDate, String> getRentalsByEquipmentIdWithin30Days(Long equipmentId) {
-//        List<RentalUtil> rentalUtilList = new ArrayList<>();
-        LinkedHashMap<LocalDate, String> localDateStringLinkedHashMap = new LinkedHashMap<>();
-        List<Rental> rentalList = rentalRepository.findFirst5ByEquipmentIdAndRentalDateGreaterThan(equipmentId, LocalDate.now());
-//        for (int i = 0; i < rentalList.size(); i++) {
-//            LocalDate localDate;
-//            for (int j=0; j<=)
-//        }
+    public LinkedHashMap<LocalDate, Boolean> isRentedByEquipmentId(Long equipmentId) {
+
+        LinkedHashMap<LocalDate, Boolean> isRentedByDay = new LinkedHashMap<>();
+        List<Rental> rentalList = rentalRepository.findFirst30ByEquipmentIdAndRentalDateGreaterThanEqual(equipmentId, LocalDate.now());
+
         List<LocalDate> rentalLocalDates = rentalList.stream()
                 .map(Rental::getRentalDate)
                 .collect(Collectors.toList());
-//        LocalDate localDate2 = LocalDate.now()
-//        for (int i = 0; i < 30; i++) {
-//            if (rentalLocalDates.contains(localDate2)) {
-//
-//            } else {
-//
-//            }
-//        }
+
         for (LocalDate localDate = LocalDate.now(); localDate.isBefore(LocalDate.now().plusDays(10)); localDate = localDate.plusDays(1)) {
             if (rentalLocalDates.contains(localDate)) {
-                localDateStringLinkedHashMap.put(localDate, "rented");
+                isRentedByDay.put(localDate, true);
             } else {
-                localDateStringLinkedHashMap.put(localDate, "free");
+                isRentedByDay.put(localDate, false);
             }
         }
 
-        Set<LocalDate> keys = localDateStringLinkedHashMap.keySet();
-        for(LocalDate k:keys){
-            System.out.println(k+" "+localDateStringLinkedHashMap.get(k));
-        }
-        return localDateStringLinkedHashMap;
+//        Set<LocalDate> keys = isRentedByDay.keySet();
+//        for(LocalDate k:keys){
+//            System.out.println(k+" "+isRentedByDay.get(k));
+//        }
+
+        return isRentedByDay;
     }
 
 }
