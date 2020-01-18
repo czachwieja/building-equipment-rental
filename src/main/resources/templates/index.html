@@ -22,11 +22,25 @@
 <main role="main">
 
     <section class="jumbotron text-center">
+
         <div class="container">
-            <h1>Wypożyczalnia sprzętu budowlanego</h1>
-            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
-                etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <h1>Wypożyczalnia sprzętu budowlanego</h1>
+                    <p class="lead text-muted">Firma Instalacyjno – Budowlana AABEL od początku swojej działalności zajmuje się wykonywaniem instalacji elektrycznych,
+                        instalacji odgromowych, sieci komputerowych oraz zintegrowanych instalacji sterowania budynkami.
+                    </p>
+                </div>
+<!---->
+                <div class="col-sm-6">
+                    <!--                    <img class="bd-placeholder-img card-img-top" width="50%" height="50%"-->
+                    <img width="50%" src="../images/aabel-logo.jpg"/>
+                </div>
+<!---->
+            </div>
         </div>
+
     </section>
 
     <div class="album py-5 bg-light">
@@ -52,7 +66,23 @@
                                 <!--                                <small class="text-muted" th:text="${equipment.getPrice()}"></small>-->
                                 <small class="text-muted" th:inline="text">Cena: [[${equipment.getPrice()}]]</small>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Wypożycz</button>
+<!--                                    <button type="button" class="btn btn-sm btn-outline-secondary">WypożyczBTN</button>-->
+<!--                                    <a th:href="@{'/users/doDelete/' + ${equipment.getId()}}">-->
+<!--                                        <span>WypożyczA</span>-->
+<!--                                    </a>-->
+
+                                    <form th:action="@{'/rental/' + ${equipment.getId()}}" method="post">
+                                        <!--                                        <input type="hidden" th:field="*{getEquipment()}" />-->
+<!--                                        <input type="text" th:field="*{equipment}" th:value="${equipment.id}"/>-->
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">WypożyczFORM</button>
+                                    </form>
+
+<!--                                    <form th:action="@{/add-rental}" th:object="${newRental}" method="post">-->
+<!--                                        &lt;!&ndash;                                        <input type="hidden" th:field="*{getEquipment()}" />&ndash;&gt;-->
+<!--                                        <input type="text" th:field="*{equipment}" th:value="${equipment.id}"/>-->
+<!--                                        <button type="submit">WypożyczFORM</button>-->
+<!--                                    </form>-->
+
 <!--                                    <button type="button" class="btn btn-sm btn-outline-secondary">Wypożycz z usługą-->
 <!--                                    </button>-->
                                 </div>

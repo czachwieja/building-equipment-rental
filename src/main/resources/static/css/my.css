@@ -1,0 +1,13 @@
+img.mini {
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+}
+
+td.line-through {
+    text-decoration: line-through;
+}
+
+td.green {
+    color: green;
+}
