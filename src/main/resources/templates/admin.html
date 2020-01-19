@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="../css/my.css" rel="stylesheet">
+
     <title>Wypożyczalnia sprzętu budowlanego</title>
 </head>
 <body>
@@ -22,35 +22,83 @@
 <main role="main">
 
     <section class="jumbotron text-center">
+
         <div class="container">
-            <h1>Wypożyczalnia sprzętu budowlanego</h1>
-            <!--            <p class="card-text" th:text="${rentalsByEquipmentId[0].getEquipment().getName()}"></p>-->
-            <!--            <img class="mini" th:src="${rentalsByEquipmentId[0].getEquipment().getPathToImage()}"/>-->
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <h1>Wypożyczalnia sprzętu budowlanego</h1>
+                    <p class="lead text-muted">Firma Instalacyjno – Budowlana AABEL od początku swojej działalności
+                        zajmuje się wykonywaniem instalacji elektrycznych,
+                        instalacji odgromowych, sieci komputerowych oraz zintegrowanych instalacji sterowania budynkami.
+                    </p>
+                </div>
+
+                <div class="col-sm-6">
+
+                    <img width="50%" src="../images/aabel-logo.jpg"/>
+                </div>
+
+            </div>
         </div>
+
     </section>
 
     <div class="album py-5 bg-light">
-
         <div class="container">
 
+            <h2>Section title</h2>
             <div class="table-responsive">
-
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
-                        <th>Data</th>
-                        <th>Nazwa sprzętu</th>
+                        <th>#</th>
+                        <th>Header</th>
+                        <th>Header</th>
+                        <th>Header</th>
+                        <th>Header</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="rental : ${rentals}">
-                        <td th:text="${rental.rentalDate}"></td>
-                        <td th:text="${rental.equipment.name}"></td>
+                    <tr>
+                        <td>1,001</td>
+                        <td>Lorem</td>
+                        <td>ipsum</td>
+                        <td>dolor</td>
+                        <td>sit</td>
+                    </tr>
+                    <tr>
+                        <td>1,001</td>
+                        <td>Lorem</td>
+                        <td>ipsum</td>
+                        <td>dolor</td>
+                        <td>sit</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
 
+
+            <div class="row">
+                <div class="col-md-4" th:each="equipment : ${allEquipment}">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <p class="card-text" th:text="${equipment.getName()}"></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted" th:inline="text">Cena: [[${equipment.getPrice()}]]</small>
+                                <div class="btn-group">
+
+                                    <form th:action="@{'/rental/' + ${equipment.getId()}}" method="post">
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">WypożyczFORM
+                                        </button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -19,11 +19,11 @@ public class EquipmentService {
         return equipmentRepository.findAll();
     }
 
-    public Equipment getEquipmentById(Long equipmentId){
-        return equipmentRepository.findById(equipmentId).stream().findFirst().get();
-    }
+//    public Equipment getEquipmentById(Long equipmentId){
+//        return equipmentRepository.findById(equipmentId).isPresent()
+//    }
 
-    public Equipment getFirstEquipmentById(Long equipmentId){
+    public Equipment getEquipmentById(Long equipmentId){
         return equipmentRepository.getEquipmentById(equipmentId);
     }
 

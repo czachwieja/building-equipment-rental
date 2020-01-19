@@ -23,24 +23,12 @@ public class RentalController {
         this.equipmentService = equipmentService;
     }
 
-    @GetMapping("/add-rental/{equipmentId}/{rentalDate}")
+    @GetMapping("/rental/add/{equipmentId}/{rentalDate}")
     public String addRental(@PathVariable("equipmentId") Long equipmentId, @PathVariable("rentalDate") String stringRentalDate) {
         Equipment equipment = equipmentService.getEquipmentById(equipmentId);
         LocalDate rentalDate = LocalDate.parse(stringRentalDate);
         rentalService.saveRental(new Rental(equipment, rentalDate));
         return "redirect:/";
-    }
-
-    @GetMapping("/all-rentals/{equipmentId}")
-    public String getAllRentalsByEquipmentId(@PathVariable("equipmentId") Long equipmentId, Model model) {
-        model.addAttribute("rentalsByEquipmentId", rentalService.getAllRentalsByEquipmentId(equipmentId));
-        return "all-rentals";
-    }
-
-    @GetMapping("/all-rentals")
-    public String getAllRentals(Model model) {
-        model.addAttribute("rentals", rentalService.getAllRentals());
-        return "all-rentals";
     }
 
     @PostMapping("/rental/{equipmentId}")
