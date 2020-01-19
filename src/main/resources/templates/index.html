@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-    <meta charset="UTF-8">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -14,8 +15,15 @@
 <header>
     <nav class="nav nav-masthead justify-content-center">
         <a class="nav-link active" href="#">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Contact</a>
+        <a class="nav-link btn btn-info" href="#">Features</a>
+        <a class="nav-link btn" href="#">Contact</a>
+<!--        <span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')') and #authorization.expression('...') }">-->
+<!--        <span th:if="${#authorization.expression('hasRole(ROLE_ADMIN)')}">-->
+<!--            This will only be displayed if authenticated user has role ROLE_ADMIN.-->
+<!--        </span>-->
+        <span sec:authorize="isAuthenticated()">
+            | Zalogowany jako: <span sec:authentication="name"> | </span><a th:href="@{/logout}">Wyloguj</a>
+            </span>
     </nav>
 </header>
 
@@ -106,7 +114,6 @@
         <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a
                 href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
     </div>
-</footer>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -119,5 +126,6 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
+</footer>
 </body>
 </html>
