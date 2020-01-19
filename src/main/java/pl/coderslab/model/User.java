@@ -3,7 +3,9 @@ package pl.coderslab.model;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -37,6 +39,9 @@ public class User {
 
     //    @NotEmpty
     private String lastName;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Rental> rentals = new ArrayList<>();
 
 //    @NIP
 //    private String nip;
@@ -114,6 +119,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public List<Rental> getRentals() {
+        return rentals;
+    }
+
+    public void setRentals(List<Rental> rentals) {
+        this.rentals = rentals;
     }
 
     @Override

@@ -31,6 +31,10 @@ public class RentalService {
         return rentalRepository.findAll();
     }
 
+    public void deleteRental(Long rentalId) {
+        rentalRepository.deleteById(rentalId);
+    }
+
 
 //    public List<Rental> getRentalsByEquipmentIdWithin30Days(Long equipmentId) {
 //        return rentalRepository.findFirst3ByEquipmentIdAndRentalDateGreaterThan(equipmentId, LocalDate.now());

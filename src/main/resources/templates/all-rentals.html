@@ -40,12 +40,23 @@
                     <tr>
                         <th>Data</th>
                         <th>Nazwa sprzętu</th>
+                        <th>Nazwa wypożyczającego</th>
+                        <th>Edytuj</th>
+                        <th>Usuń</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="rental : ${rentals}">
                         <td th:text="${rental.rentalDate}"></td>
                         <td th:text="${rental.equipment.name}"></td>
+                        <td th:text="${rental.user.username}"></td>
+                        <td>
+                            <a th:href="@{'/admin/rental/edit/' + ${rental.id}}">Edytuj</a>
+                        </td>
+                        <td>
+                            <a th:href="@{'/admin/rental/delete/' + ${rental.id}}">Usuń</a>
+<!--                            <a th:href="@{'/rental/add/' + ${equipmentId} + '/' + ${rental.getKey()}}"><span th:text="${#temporals.dayOfWeekName(rental.getKey()) + ', ' + rental.getKey()}"></span></a>-->
+                        </td>
                     </tr>
                     </tbody>
                 </table>
