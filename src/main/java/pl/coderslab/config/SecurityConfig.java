@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pl.coderslab.service.SpringDataUserDetailsService;
 
 @Configuration
+//@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -19,9 +20,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/index.html").authenticated()
-//                .antMatchers("/hi").permitAll()
-//                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/rental/**").authenticated()
+                .antMatchers("/").permitAll()
+//                .antMatchers("/", "/css/*", "/images/*").permitAll()
+//                .anyRequest().denyAll()
                 .and().formLogin();
 //                .loginPage("/login");
     }

@@ -30,17 +30,11 @@
     </section>
 
     <div class="album py-5 bg-light">
-        <div class="container">
 
-            <div class="row mb-3" th:each="rental : ${rentals}">
-                <div class="col-md-3 themed-grid-col" th:text="${rental.getRentalDate()}"></div>
-                <div class="col-md-6 themed-grid-col" th:text="${rental.getEquipment().getName()}"></div>
-            </div>
-
-        </div>
         <div class="container">
 
             <div class="table-responsive">
+
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
@@ -48,10 +42,10 @@
                         <th>Nazwa sprzętu</th>
                     </tr>
                     </thead>
-                    <tbody th:each="rental : ${rentals}">
-                    <tr>
-                        <td th:text="${rental.getRentalDate()}"></td>
-                        <td th:text="${rental.getEquipment().getName()}"></td>
+                    <tbody>
+                    <tr th:each="rental : ${rentals}">
+                        <td th:text="${rental.rentalDate}"></td>
+                        <td th:text="${rental.equipment.name}"></td>
                     </tr>
                     </tbody>
                 </table>

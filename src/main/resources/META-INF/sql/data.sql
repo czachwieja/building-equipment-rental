@@ -1,11 +1,14 @@
-INSERT INTO role (name) VALUES ('ROLE_USER');
 INSERT INTO role (name) VALUES ('ROLE_ADMIN');
+INSERT INTO role (name) VALUES ('ROLE_USER');
 
-INSERT INTO rental.equipment (description, name, price, path_to_image) VALUES ('Flir E8 to mobilna, prosta w obsludze, wytrzymala i ultra uniwersalna kamera termowizyjna. Przeznaczona jest do zastosowania w budownictwie, energetyce i przemysle', 'Kamera termowizyjna Flir E8 WiFi', 200, '../images/e8-wifi.png');
-INSERT INTO rental.equipment (description, name, price, path_to_image) VALUES ('Urzadzenie do wykonywania pomiarow certyfikacyjnych sieci LAN kat. 6, 6A', 'Miernik certyfikacyjny sieci LAN VIAVI Certifier 40G', 300, '../images/viavi-certifier-40g.png');
-INSERT INTO rental.equipment (description, name, price, path_to_image) VALUES ('Wytrzymała, prosta w obsłudze i posiadająca najszybszy na świecie cykl spawania z wygrzewaniem osłonek spawow.', 'Spawarka światłowodowa Fujikura 70S+', 10000, '../images/70S-case.png');
+INSERT INTO rental.users (enabled, password, username) VALUES (1, '$2a$10$xSN6PmHRoQtpW3CgsAP5u.oVAao.pTS3Wta/e1epUJO8o6H/g1noi', 'admin');
+INSERT INTO rental.user_role (user_id, role_id) VALUES (1, 1);
+
+INSERT INTO rental.equipment (description, name, price, path_to_image) VALUES ('Flir E8 to mobilna, prosta w obsłudze, wytrzymała i ultra uniwersalna kamera termowizyjna. Przeznaczona jest do zastosowania w budownictwie, energetyce i przemyśle', 'Kamera termowizyjna Flir E8 WiFi', 200, '../images/e8-wifi.png');
+INSERT INTO rental.equipment (description, name, price, path_to_image) VALUES ('Urządzenie do wykonywania pomiarów certyfikacyjnych sieci LAN kat. 6, 6A', 'Miernik certyfikacyjny sieci LAN VIAVI Certifier 40G', 300, '../images/viavi-certifier-40g.png');
+INSERT INTO rental.equipment (description, name, price, path_to_image) VALUES ('Wytrzymała, prosta w obsłudze i posiadająca najszybszy na świecie cykl spawania z wygrzewaniem osłonek spawów.', 'Spawarka światłowodowa Fujikura 70S+', 10000, '../images/70S-case.png');
 INSERT INTO rental.equipment (description, name, price, path_to_image) VALUES ('Kompaktowy reflektometr VIAVI SmartOTDR 1310/1550/1625nm z filtrem do pomiaru aktywnych sieci FTTx,  dynamika 40/40/41dB', 'Kompaktowy reflektometr VIAVI SmartOTDR 1310/1550/1625nm z filtrem do pomiaru aktywnych sieci FTTx', 10000, '../images/viavi_smartotdr.jpg');
-INSERT INTO rental.equipment (description, name, price, path_to_image) VALUES ('SONEL MPI-540 to wielokfuncyjny miernik parametrów elektrycznych pozwalający na pomiar wszystkich parametrów ochrony przeciwporażeniowej', 'Miernik parametrów elektrycznych SONEL MPI-540', 10000, '../images/mpi540.jpg');
+INSERT INTO rental.equipment (description, name, price, path_to_image) VALUES ('SONEL MPI-540 to wielofunkcyjny miernik parametrów elektrycznych pozwalający na pomiar wszystkich parametrów ochrony przeciwporażeniowej', 'Miernik parametrów elektrycznych SONEL MPI-540', 10000, '../images/mpi540.jpg');
 
 INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-01-11', 1);
 INSERT INTO rental.rentals (rental_date, equipment_id) VALUES ('2020-01-13', 2);

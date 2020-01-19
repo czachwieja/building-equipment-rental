@@ -1,0 +1,1 @@
+INSERT INTO rental.users (id, enabled, password, username) VALUES (1, 1, '$2a$10$xSN6PmHRoQtpW3CgsAP5u.oVAao.pTS3Wta/e1epUJO8o6H/g1noi', 'admin');

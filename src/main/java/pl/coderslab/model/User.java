@@ -14,14 +14,36 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    //    @Email
+//    @Pattern(regexp = "[^@]+@[^\\.]+\\..+")
     @Column(nullable = false, unique = true)
     private String username;
+
+    //    @NotEmpty
     private String password;
+
     private int enabled;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    //    @NotEmpty
+    private String firstName;
+
+    //    @NotEmpty
+    private String lastName;
+
+//    @NIP
+//    private String nip;
+
+//    private String companyName;
+
+//    private String Address;
 
     public User() {
     }
@@ -68,5 +90,41 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                ", roles=" + roles +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }
