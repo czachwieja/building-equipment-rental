@@ -13,6 +13,9 @@ public class Role {
     private int id;
     private String name;
 
+    public Role() {
+    }
+
     public int getId() {
         return id;
     }
@@ -32,8 +35,7 @@ public class Role {
     @Override
     public String toString() {
         return "Role{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 '}';
     }
 }

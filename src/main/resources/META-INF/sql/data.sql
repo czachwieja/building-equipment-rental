@@ -1,5 +1,5 @@
-INSERT INTO rental.role (name) VALUES ('ROLE_USER');
-INSERT INTO rental.role (name) VALUES ('ROLE_ADMIN');
+INSERT INTO role (name) VALUES ('ROLE_USER');
+INSERT INTO role (name) VALUES ('ROLE_ADMIN');
 
 INSERT INTO rental.equipment (description, name, price, path_to_image) VALUES ('Flir E8 to mobilna, prosta w obsludze, wytrzymala i ultra uniwersalna kamera termowizyjna. Przeznaczona jest do zastosowania w budownictwie, energetyce i przemysle', 'Kamera termowizyjna Flir E8 WiFi', 200, '../images/e8-wifi.png');
 INSERT INTO rental.equipment (description, name, price, path_to_image) VALUES ('Urzadzenie do wykonywania pomiarow certyfikacyjnych sieci LAN kat. 6, 6A', 'Miernik certyfikacyjny sieci LAN VIAVI Certifier 40G', 300, '../images/viavi-certifier-40g.png');

@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pl.coderslab.model.User;
-import pl.coderslab.repository.UserRepository;
 
 import java.util.HashSet;
 import java.util.Set;

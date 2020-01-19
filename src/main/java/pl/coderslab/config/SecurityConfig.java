@@ -1,6 +1,5 @@
 package pl.coderslab.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -10,16 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import pl.coderslab.service.SpringDataUserDetailsService;
 
 @Configuration
-//@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("user").password("{noop}u").roles("USER")
-//                .and()
-//                .withUser("admin").password("{noop}a").roles("ADMIN");
-//    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -29,11 +19,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/rental/**").authenticated()
-                .antMatchers("/").permitAll()
-//                .antMatchers("/", "/css/*", "/images/*").permitAll()
-//                .anyRequest().denyAll()
+                .antMatchers("/index.html").authenticated()
+//                .antMatchers("/hi").permitAll()
+//                .antMatchers("/admin").hasRole("ADMIN")
                 .and().formLogin();
 //                .loginPage("/login");
     }
@@ -47,15 +35,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public SpringDataUserDetailsService customUserDetailsService() {
         return new SpringDataUserDetailsService();
     }
-
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth)
-//            throws Exception {
-//        auth
-//                .inMemoryAuthentication()
-//                .withUser("user").password(passwordEncoder().encode("u")).roles("USER")
-//                .and()
-//                .withUser("admin").password(passwordEncoder().encode("a")).roles("ADMIN");
-//    }
 
 }

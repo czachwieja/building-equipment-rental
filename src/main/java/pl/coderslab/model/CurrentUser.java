@@ -1,22 +1,19 @@
-package pl.coderslab.service;
+package pl.coderslab.model;
 
 import org.springframework.security.core.GrantedAuthority;
-import pl.coderslab.model.User;
 
 import java.util.Collection;
 
-public class CurrentUser extends User {
+public class CurrentUser extends User{
 
-    private final User user;
-
+    private final pl.coderslab.model.User user;
     public CurrentUser(String username, String password,
                        Collection<? extends GrantedAuthority> authorities,
-                       User user) {
+                       pl.coderslab.model.User user) {
         super(username, password, authorities);
         this.user = user;
     }
-
-    public User getUser() {
+    public pl.coderslab.model.User getUser() {
         return user;
     }
 
