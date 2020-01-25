@@ -38,6 +38,7 @@
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
+                        <th>Lp.</th>
                         <th>Data</th>
                         <th>Nazwa sprzętu</th>
                         <th>Nazwa wypożyczającego</th>
@@ -46,16 +47,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="rental : ${rentals}">
-                        <td th:text="${rental.rentalDate}"></td>
+                    <tr th:each="rental, stat : ${rentals}">
+                        <td th:text="${stat.count}"></td>
+<!--                        <td th:text="${rental.rentalDate}"></td>-->
+                        <td th:text="${#temporals.dayOfWeekName(rental.rentalDate) + ', ' + rental.rentalDate}"></td>
                         <td th:text="${rental.equipment.name}"></td>
                         <td th:text="${rental.user.username}"></td>
                         <td>
-                            <a th:href="@{'/admin/rental/edit/' + ${rental.id}}">Edytuj</a>
+                            <a class="btn btn-sm btn-warning" role="button" th:href="@{'/admin/rental/edit/' + ${rental.id}}">Edytuj</a>
+                            <!--                            <a th:href="@{'/rental/add/' + ${equipmentId} + '/' + ${rental.getKey()}}"><span th:text="${#temporals.dayOfWeekName(rental.getKey()) + ', ' + rental.getKey()}"></span></a>-->
                         </td>
                         <td>
-                            <a th:href="@{'/admin/rental/delete/' + ${rental.id}}">Usuń</a>
-<!--                            <a th:href="@{'/rental/add/' + ${equipmentId} + '/' + ${rental.getKey()}}"><span th:text="${#temporals.dayOfWeekName(rental.getKey()) + ', ' + rental.getKey()}"></span></a>-->
+                            <a class="btn btn-sm btn-danger" role="button" th:href="@{'/admin/rental/delete/' + ${rental.id}}">Usuń</a>
                         </td>
                     </tr>
                     </tbody>

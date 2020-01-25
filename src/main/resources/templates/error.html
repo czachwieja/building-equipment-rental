@@ -62,33 +62,9 @@
 
     <div class="album py-5 bg-light">
         <div class="container">
-
-            <div class="row">
-
-                <div class="col-md-4" th:each="equipment : ${allEquipment}">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top" width="50%" height="50%"
-                             th:src="${equipment.getPathToImage()}"/>
-                        <div class="card-body">
-                            <p class="card-text" th:text="${equipment.getName()}"></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <!--                                <small class="text-muted" th:text="${equipment.getPrice()}"></small>-->
-                                <span class="text-muted" th:inline="text">Cena: [[${equipment.getPrice()}]] zł netto</span>
-                                <div class="btn-group">
-
-                                    <form th:action="@{'/rental/' + ${equipment.getId()}}" method="post">
-                                        <!--                                        <input type="hidden" th:field="*{getEquipment()}" />-->
-<!--                                        <input type="text" th:field="*{equipment}" th:value="${equipment.id}"/>-->
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Sprawdź dostępność </button>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <h2>Błąd 404 wybrana strona nie istnieje</h2>
+            <img src="../images/404.jpg"/>
+            <h2><a class="navbar-brand btn btn-dark" href="/">Powrót do strony głównej</a></h2>
         </div>
     </div>
 
@@ -97,9 +73,9 @@
 <footer class="text-muted">
     <div class="container">
         <p class="float-right">
-            <a href="#">Powrót na górę strony</a>
+            <a href="#">Back to top</a>
         </p>
-        <p>Copyright <a href="/admin/home">©</a>2020 Cezary Zachwieja</p>
+        <p>Copyright ©2020 Cezary Zachwieja</p>
     </div>
 
 

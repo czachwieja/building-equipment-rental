@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.model.Equipment;
 import pl.coderslab.model.Rental;
+import pl.coderslab.model.User;
 import pl.coderslab.service.CurrentUser;
 import pl.coderslab.service.EquipmentService;
 import pl.coderslab.service.RentalService;

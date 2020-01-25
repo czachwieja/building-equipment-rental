@@ -3,6 +3,9 @@ package pl.coderslab.model;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -16,13 +19,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
-    //    @Email
-//    @Pattern(regexp = "[^@]+@[^\\.]+\\..+")
+    @Email
+    @Pattern(regexp = "[^@]+@[^\\.]+\\..+")
     @Column(nullable = false, unique = true)
     private String username;
 
-    //    @NotEmpty
+    @NotEmpty
     private String password;
 
     private int enabled;

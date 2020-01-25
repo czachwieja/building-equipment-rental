@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="../css/my.css" rel="stylesheet">
+    <title>Wypożyczalnia sprzętu budowlanego</title>
+</head>
+<body>
+
+<header>
+    <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link active" href="#">Home</a>
+        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Contact</a>
+    </nav>
+</header>
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1>Wypożyczalnia sprzętu budowlanego</h1>
+            <!--            <p class="card-text" th:text="${rentalsByEquipmentId[0].getEquipment().getName()}"></p>-->
+            <!--            <img class="mini" th:src="${rentalsByEquipmentId[0].getEquipment().getPathToImage()}"/>-->
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-8 order-md-1">
+
+                    <h4 class="mb-3">Zmień datę wypożyczenia</h4>
+
+                    <form class="needs-validation" novalidate=""
+                          th:action="@{/admin/update-rental/{rentalId}(rentalId=${rentalToEdit.id})}"
+                          th:object="${rentalToEdit}"
+                          method="post">
+                        <div class="row">
+                            <!--                            <div class="col-md-6 mb-3">-->
+                            <!--                            <label for="equipmentName">Nazwa sprzętu: </label>-->
+                            <label type="text" id="equipmentName"
+                                   th:text="${'Nazwa sprzętu: ' + rentalToEdit.equipment.name}"></label>
+<!--                            <label type="hidden" for="equipmentId"-->
+<!--                                   th:text="${'Id sprzętu: ' + rentalToEdit.equipment.id}"></label>-->
+                            <input type="hidden" class="form-control" id="equipmentId" th:field="*{equipment.id}">
+<!--                            <input type="text" class="form-control" id="equipmentId" th:field="*{equipment.id}">-->
+                            <!--                            </div>-->
+                            <!--                            <div class="col-md-6 mb-3">-->
+                        </div>
+                        <div class="row">
+                            <label th:text="${'Użytkownik: ' + rentalToEdit.user.username}"></label>
+                            <!--                            </div>-->
+                        </div>
+                        <div class="row">
+                            <label for="rentalDate"
+                                   th:text="${'Data: ' + #temporals.dayOfWeekName(rentalToEdit.rentalDate) + ', ' + rentalToEdit.rentalDate}"></label>
+                            <!--                            <input type="date" class="form-control" id="rentalDate">-->
+                            Nowa data: <input type="date" class="form-control" id="rentalDate" th:field="*{rentalDate}">
+                            <!--                            </div>-->
+                            <!--                            <div class="col-md-6 mb-3">-->
+                        </div>
+
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Zmień datę</button>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</main>
+
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a
+                href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
+    </div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

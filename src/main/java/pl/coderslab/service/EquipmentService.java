@@ -24,7 +24,7 @@ public class EquipmentService {
 //    }
 
     public Equipment getEquipmentById(Long equipmentId){
-        return equipmentRepository.getEquipmentById(equipmentId);
+        return equipmentRepository.findEquipmentById(equipmentId);
     }
 
 //    public Equipment getEquipmentByName(String equipmentName){
