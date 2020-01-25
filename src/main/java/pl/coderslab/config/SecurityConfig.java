@@ -21,12 +21,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/rental/**").authenticated()
+                .antMatchers("/rental/add/**").authenticated()
                 .antMatchers("/").permitAll()
 //                .antMatchers("/", "/css/*", "/images/*").permitAll()
 //                .anyRequest().denyAll()
-                .and().formLogin();
+                .and().formLogin()
 //                .loginPage("/login");
+                .and().exceptionHandling().accessDeniedPage("/403");
     }
 
     @Bean

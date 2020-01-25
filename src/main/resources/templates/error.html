@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Wypożyczalnia sprzętu budowlanego</title>
+    <title>Wypożyczalnia sprzętu budowlanego - błąd</title>
 </head>
 <body>
 
@@ -29,20 +29,19 @@
 
                 <div class="col-sm-6">
                     <h1>Wypożyczalnia sprzętu budowlanego</h1>
-                    <p class="lead text-muted">Firma Instalacyjno – Budowlana AABEL od początku swojej działalności
-                        zajmuje się wykonywaniem instalacji elektrycznych,
+                    <p class="lead text-muted">Firma Instalacyjno – Budowlana AABEL od początku swojej działalności zajmuje się wykonywaniem instalacji elektrycznych,
                         instalacji odgromowych, sieci komputerowych oraz zintegrowanych instalacji sterowania budynkami.
                     </p>
                     <h2>
                         Zadzwoń do nas: <a href="tel:604 959 288">604 959 288</a>
                     </h2>
                 </div>
-                <!---->
+<!---->
                 <div class="col-sm-6">
                     <!--                    <img class="bd-placeholder-img card-img-top" width="50%" height="50%"-->
                     <img width="50%" src="../images/aabel-logo.jpg"/>
                 </div>
-                <!---->
+<!---->
             </div>
         </div>
 
@@ -50,36 +49,9 @@
 
     <div class="album py-5 bg-light">
         <div class="container">
-
-            <div class="row">
-
-                <div class="col-md-4" th:each="equipment : ${allEquipment}">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top" width="50%" height="50%"
-                             th:src="${equipment.getPathToImage()}"/>
-                        <div class="card-body">
-                            <p class="card-text" th:text="${equipment.getName()}"></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <!--                                <small class="text-muted" th:text="${equipment.getPrice()}"></small>-->
-                                <span class="text-muted"
-                                      th:inline="text">Cena: [[${equipment.getPrice()}]] zł netto</span>
-                                <div class="btn-group">
-
-                                    <form th:action="@{'/rental/' + ${equipment.getId()}}" method="post">
-                                        <!--                                        <input type="hidden" th:field="*{getEquipment()}" />-->
-                                        <!--                                        <input type="text" th:field="*{equipment}" th:value="${equipment.id}"/>-->
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Sprawdź
-                                            dostępność
-                                        </button>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <h2>Błąd 404 wybrana strona nie istnieje</h2>
+            <img src="../images/404.jpg"/>
+            <h2><a class="navbar-brand btn btn-dark" href="/">Powrót do strony głównej</a></h2>
         </div>
     </div>
 

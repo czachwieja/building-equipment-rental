@@ -1,5 +1,8 @@
 package pl.coderslab.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import pl.coderslab.service.CurrentUser;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -14,15 +17,20 @@ public class Rental {
     @ManyToOne
     private Equipment equipment;
 
+    @ManyToOne
+    private User user;
+
     @Column(name = "rental_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate rentalDate;
 
     public Rental() {
     }
 
-    public Rental(Equipment equipment, LocalDate rentalDate) {
+    public Rental(Equipment equipment, LocalDate rentalDate, User user) {
         this.equipment = equipment;
         this.rentalDate = rentalDate;
+        this.user = user;
     }
 
     public Long getId() {
@@ -49,4 +57,21 @@ public class Rental {
         this.rentalDate = rentalDate;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Rental{" +
+                "id=" + id +
+                ", equipment=" + equipment +
+                ", user=" + user +
+                ", rentalDate=" + rentalDate +
+                '}';
+    }
 }

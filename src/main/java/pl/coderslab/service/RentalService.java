@@ -23,6 +23,10 @@ public class RentalService {
         return rentalRepository.save(rental);
     }
 
+    public Long countRentalByEquipmentIdAndRentalDate(Long equipmentId, LocalDate rentalDate) {
+        return rentalRepository.countRentalByEquipmentIdAndRentalDate(equipmentId, rentalDate);
+    }
+
     public List<Rental> getAllRentalsByEquipmentId(Long equipmentId) {
         return rentalRepository.findAllByEquipmentId(equipmentId);
     }
@@ -31,10 +35,13 @@ public class RentalService {
         return rentalRepository.findAll();
     }
 
+    public void deleteRental(Long rentalId) {
+        rentalRepository.deleteById(rentalId);
+    }
 
-//    public List<Rental> getRentalsByEquipmentIdWithin30Days(Long equipmentId) {
-//        return rentalRepository.findFirst3ByEquipmentIdAndRentalDateGreaterThan(equipmentId, LocalDate.now());
-//    }
+    public Rental getRentalById(Long rentalId) {
+        return rentalRepository.findRentalById(rentalId);
+    }
 
     public LinkedHashMap<LocalDate, Boolean> isRentedByEquipmentId(Long equipmentId) {
 
@@ -52,11 +59,6 @@ public class RentalService {
                 isRentedByDay.put(localDate, false);
             }
         }
-
-//        Set<LocalDate> keys = isRentedByDay.keySet();
-//        for(LocalDate k:keys){
-//            System.out.println(k+" "+isRentedByDay.get(k));
-//        }
 
         return isRentedByDay;
     }

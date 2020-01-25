@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Wypożyczalnia sprzętu budowlanego</title>
+    <title>Wypożyczalnia sprzętu budowlanego - dostęp zabroniony</title>
 </head>
 <body>
 
@@ -50,36 +50,10 @@
 
     <div class="album py-5 bg-light">
         <div class="container">
-
-            <div class="row">
-
-                <div class="col-md-4" th:each="equipment : ${allEquipment}">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top" width="50%" height="50%"
-                             th:src="${equipment.getPathToImage()}"/>
-                        <div class="card-body">
-                            <p class="card-text" th:text="${equipment.getName()}"></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <!--                                <small class="text-muted" th:text="${equipment.getPrice()}"></small>-->
-                                <span class="text-muted"
-                                      th:inline="text">Cena: [[${equipment.getPrice()}]] zł netto</span>
-                                <div class="btn-group">
-
-                                    <form th:action="@{'/rental/' + ${equipment.getId()}}" method="post">
-                                        <!--                                        <input type="hidden" th:field="*{getEquipment()}" />-->
-                                        <!--                                        <input type="text" th:field="*{equipment}" th:value="${equipment.id}"/>-->
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Sprawdź
-                                            dostępność
-                                        </button>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <h1>Dostęp zabroniony</h1>
+            <p>
+            <h2><a class="navbar-brand btn btn-dark" href="/">Powrót do strony głównej</a></h2>
+            </p>
         </div>
     </div>
 

@@ -3,7 +3,12 @@ package pl.coderslab.model;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,13 +19,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
-    //    @Email
-//    @Pattern(regexp = "[^@]+@[^\\.]+\\..+")
+    @Email
+    @Pattern(regexp = "[^@]+@[^\\.]+\\..+")
     @Column(nullable = false, unique = true)
     private String username;
 
-    //    @NotEmpty
+    @NotEmpty
     private String password;
 
     private int enabled;
@@ -37,6 +41,9 @@ public class User {
 
     //    @NotEmpty
     private String lastName;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Rental> rentals = new ArrayList<>();
 
 //    @NIP
 //    private String nip;
@@ -114,6 +121,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public List<Rental> getRentals() {
+        return rentals;
+    }
+
+    public void setRentals(List<Rental> rentals) {
+        this.rentals = rentals;
     }
 
     @Override

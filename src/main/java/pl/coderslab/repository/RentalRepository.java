@@ -17,4 +17,7 @@ public interface RentalRepository extends JpaRepository<Rental, Long> {
 
     List<Rental> findFirst30ByEquipmentIdAndRentalDateGreaterThanEqual(Long id, LocalDate todayDate);
 
+    Rental findRentalById(Long id);
+
+    Long countRentalByEquipmentIdAndRentalDate(Long equipmentId, LocalDate rentalDate);
 }

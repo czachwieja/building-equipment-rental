@@ -13,6 +13,8 @@ import pl.coderslab.model.User;
 import pl.coderslab.service.CurrentUser;
 import pl.coderslab.service.UserService;
 
+import javax.validation.Valid;
+
 @Controller
 public class UserController {
 
@@ -22,24 +24,28 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/create-user")
-    @ResponseBody
-    public String createUser() {
-        User user = new User();
-        user.setUsername("user");
-        user.setPassword("u");
-        userService.saveUser(user);
-        return "Logon details: " + user.getUsername() + " " + user.getPassword() + " " + user.getRoles();
-    }
+//    @GetMapping("/create-user")
+//    @ResponseBody
+//    public String createUser() {
+//        User user = new User();
+//        user.setUsername("user");
+//        user.setPassword("u");
+//        userService.saveUser(user);
+//        return "Logon details: " + user.getUsername() + " " + user.getPassword() + " " + user.getRoles();
+//    }
 
     @GetMapping("/register")
     public String registerUser(Model model) {
-        model.addAttribute("newUser", new User());
+        model.addAttribute("user", new User());
         return "register";
     }
 
     @PostMapping("/register")
-    public String saveUser(@ModelAttribute("user") User user) {
+//    public String saveUser(@ModelAttribute("user") @Valid User user, BindingResult result) {
+    public String saveUser(@ModelAttribute @Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "register";
+        }
         userService.saveUser(user);
         return "redirect:/";
     }
