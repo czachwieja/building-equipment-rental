@@ -1,31 +1,24 @@
-<DOCTYPE html>
-    <html xmlns:th="http://www.thymeleaf.org" lang="pl">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-              crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-        <title>Wypożyczalnia sprzętu budowlanego</title>
-    </head>
-    <body>
+    <title>Wypożyczalnia sprzętu budowlanego - zarejestruj</title>
+</head>
+<body>
 
-    <header>
-        <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link btn btn-info" href="#">Features</a>
-            <a class="nav-link btn" href="#">Contact</a>
-            <!--        <span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')') and #authorization.expression('...') }">-->
-            <!--        <span th:if="${#authorization.expression('hasRole(ROLE_ADMIN)')}">-->
-            <!--            This will only be displayed if authenticated user has role ROLE_ADMIN.-->
-            <!--        </span>-->
-            <!--        <span sec:authorize="isAuthenticated()"> | Zalogowany jako: <span sec:authentication="name"> | </span>-->
-            <!--        <a th:href="@{/logout}">Wyloguj</a>-->
-            </span>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+        <a class="navbar-brand btn btn-dark" href="/">Wypożyczalnia</a>
+        <a class="navbar-brand btn btn-dark" href="/login">Logowanie</a>
+        <a class="navbar-brand btn btn-dark" href="/register">Rejestracja</a>
+        <a class="navbar-brand btn btn-dark" href="/logout">Wyloguj</a>
+    </nav>
+</header>
 
     <main role="main">
 
@@ -111,7 +104,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="phone">Nr telefonu <span class="text-muted">(Optional)</span></label>
+                                <label for="phone">Nr telefonu <span class="text-muted">(opcjonalnie)</span></label>
                                 <input type="text" class="form-control" id="phone" placeholder="604 959 288" required=""
                                        th:field="*{phoneNumber}">
                             </div>
@@ -127,27 +120,25 @@
 
     </main>
 
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Back to top</a>
-            </p>
-            <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-            <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a
-                    href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
-        </div>
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <a href="#">Powrót na górę strony</a>
+        </p>
+        <p>Copyright <a href="/admin/home">©</a>2020 Cezary Zachwieja</p>
+    </div>
 
 
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-                integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-                crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-                crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-                integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-                crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
 
-    </footer>
-    </body>
-    </html>
+</footer>
+</body>
+</html>

@@ -40,6 +40,8 @@ public class RentalController {
     public String getRentalsByEquipmentId(@PathVariable("equipmentId") Long equipmentId, Model model) {
         model.addAttribute("isRentedByEquipmentId", rentalService.isRentedByEquipmentId(equipmentId));
         model.addAttribute("equipmentId", equipmentId);
+        Equipment equipment = equipmentService.getEquipmentById(equipmentId);
+        model.addAttribute("equipmentName", equipment.getName());
         return "rental";
     }
 

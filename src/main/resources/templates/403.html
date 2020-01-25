@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pl"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,28 +7,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Wypożyczalnia sprzętu budowlanego</title>
+    <title>Wypożyczalnia sprzętu budowlanego - dostęp zabroniony</title>
 </head>
 <body>
 
 <header>
-    <!--    <nav class="nav nav-masthead justify-content-center">-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
         <a class="navbar-brand btn btn-dark" href="/">Wypożyczalnia</a>
         <a class="navbar-brand btn btn-dark" href="/login">Logowanie</a>
         <a class="navbar-brand btn btn-dark" href="/register">Rejestracja</a>
-        <!--        <a class="nav-link btn btn-secondary" href="/register">Zarejestruj się</a>-->
-        <!--        <span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')') and #authorization.expression('...') }">-->
-        <!--        <span th:if="${#authorization.expression('hasRole(ROLE_ADMIN)')}">-->
-        <!--            This will only be displayed if authenticated user has role ROLE_ADMIN.-->
-        <!--        </span>-->
-        <span sec:authorize="isAuthenticated()" style="display: inline-block;">
-                    | Zalogowany użytkownik: <span sec:authentication="name"></span> |
-                    Role: <span sec:authentication="principal.authorities"></span> |
-                    <a th:href="@{/logout}">Wyloguj</a>
-                </span>
-        <!--        <span sec:authorize="isAuthenticated()"> | Zalogowany jako: </span><span sec:authentication="name"> | </span>-->
-        <!--        <a th:href="@{/logout}">Wyloguj</a>-->
+        <a class="navbar-brand btn btn-dark" href="/logout">Wyloguj</a>
     </nav>
 </header>
 
@@ -75,9 +62,9 @@
 <footer class="text-muted">
     <div class="container">
         <p class="float-right">
-            <a href="#">Back to top</a>
+            <a href="#">Powrót na górę strony</a>
         </p>
-        <p>Copyright ©2020 Cezary Zachwieja</p>
+        <p>Copyright <a href="/admin/home">©</a>2020 Cezary Zachwieja</p>
     </div>
 
 
