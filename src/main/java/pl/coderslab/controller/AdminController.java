@@ -1,15 +1,12 @@
 package pl.coderslab.controller;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.model.Equipment;
 import pl.coderslab.model.Rental;
-import pl.coderslab.service.CurrentUser;
 import pl.coderslab.service.EquipmentService;
 import pl.coderslab.service.RentalService;
 
@@ -66,14 +63,10 @@ public class AdminController {
     public String updateRental(@PathVariable Long rentalId, Rental rental, Model model) {
 
         LocalDate dateToUpdate = rental.getRentalDate();
-//        System.out.println(dateToUpdate);
         Rental rentalToUpdate = rentalService.getRentalById(rentalId);
 
 
         Long equipmentId = rental.getEquipment().getId();
-//        System.out.println("eID: " + equipmentId);
-
-//        System.out.println("COUNT: "+rentalService.countRentalByEquipmentIdAndRentalDate(equipmentId, dateToUpdate));
         Long count = rentalService.countRentalByEquipmentIdAndRentalDate(equipmentId, dateToUpdate);
 
         if (count == 0) {

@@ -19,10 +19,6 @@ public class EquipmentService {
         return equipmentRepository.findAll();
     }
 
-//    public Equipment getEquipmentById(Long equipmentId){
-//        return equipmentRepository.findById(equipmentId).isPresent()
-//    }
-
     public Equipment getEquipmentById(Long equipmentId){
         return equipmentRepository.findEquipmentById(equipmentId);
     }

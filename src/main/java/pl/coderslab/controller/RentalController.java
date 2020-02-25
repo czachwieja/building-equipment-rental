@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.model.Equipment;
 import pl.coderslab.model.Rental;
-import pl.coderslab.model.User;
 import pl.coderslab.service.CurrentUser;
 import pl.coderslab.service.EquipmentService;
 import pl.coderslab.service.RentalService;
@@ -44,14 +43,5 @@ public class RentalController {
         model.addAttribute("equipmentName", equipment.getName());
         return "rental";
     }
-
-//    @GetMapping("/rental/{equipmentName}")
-//    public String getRentalsByEquipmentId(@PathVariable("equipmentName") String equipmentName, Model model) {
-//
-//        Equipment equipment = equipmentService.getEquipmentByName(equipmentName);
-//        Long equipmentId = equipment.getId();
-//        model.addAttribute("rentalsByEquipmentId", rentalService.isRentedByEquipmentId(equipmentId));
-//        return "rental";
-//    }
 
 }

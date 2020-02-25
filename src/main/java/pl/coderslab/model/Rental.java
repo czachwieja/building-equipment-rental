@@ -1,7 +1,6 @@
 package pl.coderslab.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import pl.coderslab.service.CurrentUser;
 
 import javax.persistence.*;
 import java.time.LocalDate;
