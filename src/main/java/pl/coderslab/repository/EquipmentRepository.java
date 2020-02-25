@@ -6,6 +6,5 @@ import pl.coderslab.model.Equipment;
 
 @Repository
 public interface EquipmentRepository extends JpaRepository<Equipment, Long> {
-//    Equipment getEquipmentByName(String equipmentName);
     Equipment findEquipmentById(Long equipmentId);
 }

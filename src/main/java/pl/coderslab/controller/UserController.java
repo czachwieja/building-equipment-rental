@@ -24,16 +24,6 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @GetMapping("/create-user")
-//    @ResponseBody
-//    public String createUser() {
-//        User user = new User();
-//        user.setUsername("user");
-//        user.setPassword("u");
-//        userService.saveUser(user);
-//        return "Logon details: " + user.getUsername() + " " + user.getPassword() + " " + user.getRoles();
-//    }
-
     @GetMapping("/register")
     public String registerUser(Model model) {
         model.addAttribute("user", new User());
@@ -41,7 +31,6 @@ public class UserController {
     }
 
     @PostMapping("/register")
-//    public String saveUser(@ModelAttribute("user") @Valid User user, BindingResult result) {
     public String saveUser(@ModelAttribute @Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return "register";
@@ -49,26 +38,6 @@ public class UserController {
         userService.saveUser(user);
         return "redirect:/";
     }
-
-//    @GetMapping("/create-admin")
-//    @ResponseBody
-//    public String createAdmin() {
-//        User user = new User();
-//        user.setUsername("admin");
-//        user.setPassword("a");
-//        userService.saveUser(user);
-//        return "Logon details: " + user.getUsername() + " " + user.getPassword() + " " + user.getRoles();
-//    }
-//
-//    @GetMapping("/create-admin2")
-//    @ResponseBody
-//    public String createAdmin2() {
-//        User user = new User();
-//        user.setUsername("admin2");
-//        user.setPassword("a");
-//        userService.saveUser(user);
-//        return "Logon details: " + user.getUsername() + " " + user.getPassword() + " " + user.getRoles();
-//    }
 
     @GetMapping("/user")
     @ResponseBody
